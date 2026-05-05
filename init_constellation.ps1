@@ -1,4 +1,4 @@
-$env:CONSTELLATION_ACCESS_KEY = "ak:e38690cc8c364a7984d0cc722a0afd6d"
+# Relying on existing $env:CONSTELLATION_ACCESS_KEY
 cd "C:\Users\autismo\Documents\GitHub\GodBrain"
 if (Test-Path constellation.json) { Remove-Item constellation.json }
 $answers = @(

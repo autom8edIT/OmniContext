@@ -1,0 +1,1 @@
+Get-NetFirewallRule | Where-Object { $_.Enabled -eq "True" -and $_.Direction -eq "Inbound" } | Select-Object DisplayName, Action | Format-Table -AutoSize; Get-Service | Where-Object { $_.Status -eq "Running" -and ($_.Name -match "telemetry|xbox|maps|feedback") } | Select-Object DisplayName, Status
