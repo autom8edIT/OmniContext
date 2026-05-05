@@ -35,6 +35,25 @@ class UniversalIngestionEngine:
             return None
 
         filename = os.path.basename(image_path)
+        
+        # Check for Google Auth Migration URL
+        if "otpauth-migration://" in raw_text:
+            try:
+                from google_auth_decoder import decode_google_auth_url
+                import re
+                # Find the URL in the text
+                url_match = re.search(r"otpauth-migration://offline\?data=[a-zA-Z0-9%._-]+", raw_text)
+                if url_match:
+                    url = url_match.group(0)
+                    decoded_secrets = decode_google_auth_url(url)
+                    raw_text += f"\n\n[Decoded MFA Secrets]: {decoded_secrets}"
+                    if not entities:
+                        entities = []
+                    for s in decoded_secrets:
+                        entities.append({"label": "MFA_Secret", "name": f"{s['issuer']}:{s['name']}"})
+            except Exception as e:
+                logger.error(f"[-] Failed to decode MFA URL: {e}")
+
         content = f"[{filename}] {raw_text}"
         
         # Unified save (Mongo + Neo4j)
