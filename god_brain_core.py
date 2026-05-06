@@ -28,10 +28,13 @@ class GodBrainEngine:
         self.memories = self.mongo_db.memories
         
         # Neo4j Config (Cloud) - Using +ssc to bypass SSL issues
-        self.neo4j_uri = os.environ.get("NEO4J_URI", "neo4j+ssc://334f8d57.databases.neo4j.io")
-        self.neo4j_user = os.environ.get("NEO4J_USERNAME", "334f8d57")
-        self.neo4j_password = os.environ.get("NEO4J_PASSWORD", "REDACTED")
-        self.neo4j_db = os.environ.get("NEO4J_DB", "334f8d57")
+        self.neo4j_uri = os.environ.get("NEO4J_URI")
+        self.neo4j_user = os.environ.get("NEO4J_USERNAME")
+        self.neo4j_password = os.environ.get("NEO4J_PASSWORD")
+        self.neo4j_db = os.environ.get("NEO4J_DB")
+        
+        if not all([self.neo4j_uri, self.neo4j_user, self.neo4j_password]):
+            logger.error("[-] Neo4j credentials missing from environment.")
         
         self._neo4j_driver = None
         logger.info("[+] GodBrain Engine Initialized (Local-First)")

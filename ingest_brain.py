@@ -46,11 +46,12 @@ class UniversalIngestionEngine:
                 if url_match:
                     url = url_match.group(0)
                     decoded_secrets = decode_google_auth_url(url)
-                    raw_text += f"\n\n[Decoded MFA Secrets]: {decoded_secrets}"
+                    # SECURITY: Do NOT append raw decoded secrets to raw_text
                     if not entities:
                         entities = []
                     for s in decoded_secrets:
                         entities.append({"label": "MFA_Secret", "name": f"{s['issuer']}:{s['name']}"})
+                    logger.info(f"[+] Decoded {len(decoded_secrets)} MFA secrets (Redacted from logs)")
             except Exception as e:
                 logger.error(f"[-] Failed to decode MFA URL: {e}")
 

@@ -19,7 +19,10 @@ REMOTE_TASKS_FILE = r"C:\Users\autismo\Documents\GitHub\godbrain\remote_tasks.js
 UPLOADS_DIR = r"C:\Users\autismo\Documents\GitHub\godbrain\uploads"
 
 # Security
-API_KEY = os.environ.get("X-API-Key", os.environ.get("GODBRAIN_API_KEY", "GOD_BRAIN_DEFAULT_SECRET"))
+API_KEY = os.environ.get("X-API-Key", os.environ.get("GODBRAIN_API_KEY"))
+
+if not API_KEY:
+    raise RuntimeError("GODBRAIN_API_KEY environment variable not set.")
 
 async def verify_token(x_api_key: str = Header(...)):
     if x_api_key != API_KEY:
