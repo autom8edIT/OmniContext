@@ -18,8 +18,9 @@ load_dotenv()
 
 def test_godbrain_connection():
     # Aura best practice: neo4j+s for encrypted routing
-    uri = "neo4j+ssc://334f8d57.databases.neo4j.io"
-    username = "334f8d57"
+    # But using +ssc for local SSL verification issues
+    uri = "neo4j+ssc://9b4e7bcb.databases.neo4j.io"
+    username = "9b4e7bcb"
     password = os.environ.get("NEO4J_PASSWORD")
 
     if not password:
@@ -30,13 +31,13 @@ def test_godbrain_connection():
     try:
         # Using the latest recommended driver pattern
         with GraphDatabase.driver(uri, auth=(username, password)) as driver:
-            print("[+] Verifying connectivity (fetching routing table)...")
+            print("[+] Verifying connectivity...")
             driver.verify_connectivity()
 
-            print("[+] Routing successful! Executing test query on 'neo4j' database...")
+            print("[+] Routing successful! Executing test query on '9b4e7bcb' database...")
             # Explicitly naming the database as per docs
             summary = driver.execute_query(
-                "RETURN 'GodBrain is Online' as message", database_="334f8d57"
+                "RETURN 'GodBrain is Online' as message", database_="9b4e7bcb"
             ).summary
 
             print(f"[+] Success! Connected to: {summary.metadata.get('server')}")
