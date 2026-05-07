@@ -17,12 +17,17 @@ load_dotenv()
 
 
 def test_godbrain_connection():
-    # Aura best practice: neo4j+s for encrypted routing
-    # But using +ssc for local SSL verification issues
-    uri = "neo4j+ssc://9b4e7bcb.databases.neo4j.io"
-    username = "9b4e7bcb"
+    uri = os.environ.get("NEO4J_URI")
+    username = os.environ.get("NEO4J_USERNAME")
     password = os.environ.get("NEO4J_PASSWORD")
+    database = os.environ.get("NEO4J_DB", "neo4j")
 
+    if not uri:
+        print("[-] Error: NEO4J_URI not found.")
+        return
+    if not username:
+        print("[-] Error: NEO4J_USERNAME not found.")
+        return
     if not password:
         print("[-] Error: NEO4J_PASSWORD not found.")
         return
@@ -34,10 +39,10 @@ def test_godbrain_connection():
             print("[+] Verifying connectivity...")
             driver.verify_connectivity()
 
-            print("[+] Routing successful! Executing test query on '9b4e7bcb' database...")
+            print(f"[+] Routing successful! Executing test query on '{database}' database...")
             # Explicitly naming the database as per docs
             summary = driver.execute_query(
-                "RETURN 'GodBrain is Online' as message", database_="9b4e7bcb"
+                "RETURN 'GodBrain is Online' as message", database_=database
             ).summary
 
             print(f"[+] Success! Connected to: {summary.metadata.get('server')}")
