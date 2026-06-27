@@ -18,6 +18,8 @@ Because the "brain" (MongoDB + Constellation) is completely decoupled from the c
 - **Hybrid Intelligence:** You aren't limited to local models. Hook up APIs for Grok, Gemini, Codex, or anything else. Let them crunch the massive datasets and commit their insights directly into Constellation.
 - **Unrestricted Execution:** Your local, uncensored models read those teachings from the shared MongoDB and execute the highly-privileged, unrestricted OS-level operations (like running `wsudo` scripts) that heavily-censored corporate APIs refuse to do.
 
+Trying to match a 128GB Mac on a PC means stacking $10k+ of pro GPUs and a power bill that needs its own reactor. The Mac does it on a laptop, fanless-quiet, for a fraction of the watts — which is exactly the point: GodBrain scales infinitely with whatever you've got, so the only ceiling is your hardware budget, not the software.
+
 Cloud models do the heavy context lifting; your local sovereign models pull from the shared memory to execute with God-level permissions.
 
 ## How it works
@@ -59,3 +61,36 @@ This is additive — call it from a model-specific init (e.g. `common_chat_param
 ## The bigger picture
 
 GodBrain is a **Distributed Cognitive OS**: intelligence is decoupled from hardware. The "mind" lives in shared brain-wires; models contribute sensing, compute, and local agency, and high-leverage teachings persist for every model that follows.
+
+## The End Goal: A Sovereign Autonomous Operator
+
+The destination is an AI that owns the full loop — brainstorm a problem, understand it, and *fix it* across every machine you run, with no hand-holding.
+
+**Working today** — these are shipped and live in the build, not slideware:
+
+- **Self-command** — the agent issues and chains its own commands.
+- **Sequential thinking** — multi-step reasoning instead of one-shot guesses.
+- **Constellation** — code-graph self-analysis of its own system.
+- **MongoDB query / index / update** — full read-write access to the shared brain.
+- **Full local filesystem read/write** — real files, real changes, no sandbox theater.
+- **Privileged execution** — `wsudo` scripts and Visual Studio access to actually build and repair.
+
+Put together, that already means GodBrain can reason about a problem, dig through its own memory and code graph, and execute privileged fixes on the local machine — the hard part is done.
+
+**The end goal** — the trajectory these capabilities are converging on:
+
+> A fully autonomous operator that scans the internet for the latest CVEs, *understands* the threat, and auto-patches it across **any** of your machines — Devuan, macOS, or Windows alike. It picks up where tools like DISM fall short, repairs what they should have fixed (registry included), and closes the loop end-to-end because it has both the reasoning and the privileged tooling (`wsudo`, Visual Studio, local execution) to do it.
+
+Cloud models can do the heavy context lifting; your local sovereign models pull from the shared memory and pull the trigger. That's the whole point: **one collective brain, infinite hardware, zero permission-begging.**
+
+### Roadmap
+
+- [x] Self-command + sequential thinking
+- [x] Constellation code-graph self-analysis
+- [x] MongoDB query / index / update
+- [x] Full local filesystem read/write
+- [x] Privileged execution (`wsudo`, Visual Studio)
+- [ ] Autonomous CVE ingestion (scan + understand latest threats)
+- [ ] Cross-fleet patch orchestration (Devuan / macOS / Windows)
+- [ ] Self-directed DISM/registry repair beyond stock tooling
+- [ ] Closed-loop: detect → reason → patch → verify, zero hand-holding
