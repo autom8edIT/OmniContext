@@ -49,12 +49,12 @@ Write-Output "[+] Offloading to 4080 SUPER (CUDA Accelerated)..."
 
 if ($Model -in @("Oracle", "Oracle_Bartowski", "China_Carmack", "Jack_of_all_trades")) {
 Write-Output "[!] Warning: Larger models may require Hybrid mode (GPU + System RAM)."
-    & $LLAMA_SERVER -m $ModelPath -ngl 35 -c 4096 --port 8080
+    & $LLAMA_SERVER -m $ModelPath -ngl 35 -c 4096 --port 8080 --tools
 } elseif ($Model -eq "Designer") {
     Write-Output "[+] Enabling Multimodal/Vision capabilities for $Model..."
     $MmprojPath = Join-Path $MODEL_DIR "mmproj-F32.gguf"
-    & $LLAMA_SERVER -m $ModelPath --mmproj $MmprojPath -ngl 99 -c 8192 --port 8080
+    & $LLAMA_SERVER -m $ModelPath --mmproj $MmprojPath -ngl 99 -c 8192 --port 8080 --tools
 } else {
-    & $LLAMA_SERVER -m $ModelPath -ngl 99 -c 8192 --port 8080
+    & $LLAMA_SERVER -m $ModelPath -ngl 99 -c 8192 --port 8080 --tools
 }
 
