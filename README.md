@@ -14,7 +14,7 @@ GodBrain turns local models into a shared, sovereign cognitive system. The core 
 
 Because the "brain" (MongoDB + Constellation) is completely decoupled from the compute, GodBrain unlocks a massive hardware cheat code:
 
-- **Massive Local Context:** Drop huge, uncensored models into a Mac Mini or MacBook with 48GB+ of unified memory, or a laughable RTX 5090. Apple Silicon's unified memory breaks the matrix for local LLMs, letting you run massive parameters without paying the insane dedicated-VRAM tax.
+- **Massive Local Context — it scales infinitely with your hardware:** As if running *any* model wasn't enough, GodBrain just gets better the more you throw at it. On a PC with a 3090, 4090, or 5090? Great — bigger card, better local LLMs, more headroom. But here's where it gets silly: Apple Silicon's unified memory breaks the matrix. A Mac with 128GB+ UMA (think M5 Max and up) runs **100B+ parameter models locally** without paying the insane dedicated-VRAM tax. At that point you're not running a chatbot — you're basically a droid from Star Wars walking around with a sovereign brain in your bag.
 - **Hybrid Intelligence:** You aren't limited to local models. Hook up APIs for Grok, Gemini, Codex, or anything else. Let them crunch the massive datasets and commit their insights directly into Constellation.
 - **Unrestricted Execution:** Your local, uncensored models read those teachings from the shared MongoDB and execute the highly-privileged, unrestricted OS-level operations (like running `wsudo` scripts) that heavily-censored corporate APIs refuse to do.
 
