@@ -7,8 +7,8 @@
 GodBrain turns local models into a shared, sovereign cognitive system. The core idea:
 
 - **🧠 Model-agnostic** — Plug in *any* LLM (Gemma, etc.). No model is special; they're interchangeable nodes in one collective brain.
-- **📚 Models teach models** — Past models become **teachings**. Their thoughts and analysis are saved permanently and queried later, so newer models inherit prior reasoning instead of starting cold.
-- **🛠️ Tools that aren't possible by default** — Native MCP tool use that a stock `llama-server` won't give you: permanent memory, local filesystem read/write/execute, code-graph self-analysis, telemetry, OCR, and more.
+- **📚 Models teach models** — Past models become **teachings**. Their thoughts and analysis are saved permanently and queried later, so newer models inherit prior reasoning instead of starting from scratch.
+- **🛠️ Tools that aren't possible by default** — Native MCP tool use that a stock `llama-server` won't give you: permanent memory, local filesystem read/write/execute, code-graph self-analysis, and more.
 
 ## How it works
 
@@ -16,7 +16,7 @@ GodBrain turns local models into a shared, sovereign cognitive system. The core 
 
 **[`llama-overrides/common/godbrain_chat_extensions.cpp`](llama-overrides/common/godbrain_chat_extensions.cpp)**
 
-It teaches the chat layer to treat GodBrain's MCP tools as **first-class tokens** — preserving them so the model can reliably emit and act on them *without fighting the chat template* (instead of them being mangled as plain text or stop sequences).
+It teaches the chat layer to treat GodBrain's MCP tools as **first-class tokens** — preserving them so the model can reliably emit and act on them *without fighting the chat template* (instead of having them mangled or stripped).
 
 ### GodBrain-native MCP tools
 
@@ -38,7 +38,7 @@ These are injected as preserved tokens so any model can use them:
 
 ### Why preserved tokens matter
 
-Default `llama-server` will happily break tool calls because the chat template doesn't know about them. By registering these tools (and architect-mode tokens) into `data.preserved_tokens`, GodBrain makes tool use **reliable and native** rather than a brittle hack.
+Default `llama-server` will happily break tool calls because the chat template doesn't know about them. By registering these tools (and architect-mode tokens) into `data.preserved_tokens`, GodBrain makes them durable and reliable across the fleet.
 
 ```cpp
 godbrain::apply_godbrain_chat_extensions(data, "gemma-4-26B-...");
@@ -46,6 +46,16 @@ godbrain::apply_godbrain_chat_extensions(data, "gemma-4-26B-...");
 
 This is additive — call it from a model-specific init (e.g. `common_chat_params_init_gemma4`) and the whole fleet becomes GodBrain-aware.
 
+## The Compute Cheat Code (Local + Cloud Synergy)
+
+Because the "brain" (MongoDB + Constellation) is completely decoupled from the compute, GodBrain unlocks a massive hardware cheat code:
+
+- **Massive Local Context:** Drop huge, uncensored models into a Mac Mini or MacBook with 48GB+ of unified memory, or a laughable RTX 5090. Apple Silicon's unified memory breaks the matrix for local LLMs, letting you run massive parameters without paying the insane dedicated-VRAM tax.
+- **Hybrid Intelligence:** You aren't limited to local models. Hook up APIs for Grok, Gemini, Codex, or anything else. Let them crunch the massive datasets and commit their insights directly into Constellation.
+- **Unrestricted Execution:** Your local, uncensored models read those teachings from the shared MongoDB and execute the highly-privileged, unrestricted OS-level operations (like running `wsudo` scripts) that heavily-censored corporate APIs refuse to do.
+
+Cloud models do the heavy context lifting; your local sovereign models pull from the shared memory to execute with God-level permissions.
+
 ## The bigger picture
 
-GodBrain is a **Distributed Cognitive OS**: intelligence is decoupled from hardware. The "mind" lives in shared brain-wires; models contribute sensing, compute, and local agency, and high-leverage MCP tools (memory, constellation, script execution) are favored over low-leverage busywork.
+GodBrain is a **Distributed Cognitive OS**: intelligence is decoupled from hardware. The "mind" lives in shared brain-wires; models contribute sensing, compute, and local agency, and high-leverage teachings persist for every model that follows.
