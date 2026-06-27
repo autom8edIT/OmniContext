@@ -1,0 +1,154 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    },
+    "enablePermanentToolApproval": true,
+    "autoAddToPolicyByDefault": true,
+    "disableAlwaysAllow": false,
+    "environmentVariableRedaction": {
+      "enabled": true
+    }
+  },
+  "model": {
+    "name": "auto"
+  },
+  "ui": {
+    "footer": {
+      "items": [
+        "workspace",
+        "git-branch",
+        "sandbox",
+        "model-name",
+        "quota",
+        "context-used",
+        "auth",
+        "token-count"
+      ],
+      "hideContextPercentage": false
+    },
+    "theme": "C:\\Users\\autismo\\.gemini\\gruvbox-dark.json",
+    "showStatusInTitle": true,
+    "showMemoryUsage": true,
+    "terminalBuffer": true,
+    "loadingPhrases": "witty",
+    "autoThemeSwitching": false,
+    "inlineThinkingMode": "full",
+    "showCitations": true,
+    "showModelInfoInChat": true,
+    "errorVerbosity": "full"
+  },
+  "general": {
+    "defaultApprovalMode": "auto_edit",
+    "preferredEditor": "vscode",
+    "enableNotifications": true,
+    "notificationMethod": "auto",
+    "sessionRetention": {
+      "maxAge": "120d"
+    }
+  },
+  "ide": {
+    "enabled": true
+  },
+  "experimental": {
+    "modelSteering": true,
+    "contextManagement": true,
+    "voiceMode": true,
+    "voice": {
+      "whisperModel": "ggml-large-v3-turbo-q8_0.bin"
+    },
+    "directWebFetch": true,
+    "gemmaModelRouter": {
+      "enabled": true
+    },
+    "generalistProfile": true
+  },
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "trust": true
+    },
+    "fetch": {
+      "command": "mcp-server-fetch",
+      "args": [],
+      "trust": true
+    },
+    "memory-graph": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "trust": true
+    },
+    "constellation": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@constellationdev/mcp"
+      ],
+      "trust": true
+    },
+    "desktop-commander": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@wonderwhy-er/desktop-commander"
+      ],
+      "trust": true
+    },
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp",
+      "type": "http",
+      "trust": true
+    },
+    "neo4j-cypher": {
+      "command": "C:\\Tools\\neo4j-mcp\\neo4j-mcp.exe",
+      "args": [],
+      "env": {
+        "NEO4J_URI": "neo4j+ssc://9b4e7bcb.databases.neo4j.io",
+        "NEO4J_USERNAME": "9b4e7bcb",
+        "NEO4J_DATABASE": "9b4e7bcb"
+      },
+      "trust": true
+    },
+    "neo4j-memory": {
+      "command": "mcp-neo4j-memory",
+      "args": [],
+      "env": {
+        "NEO4J_URI": "neo4j+ssc://9b4e7bcb.databases.neo4j.io",
+        "NEO4J_USERNAME": "9b4e7bcb",
+        "NEO4J_DATABASE": "9b4e7bcb"
+      },
+      "trust": true
+    },
+    "memory": {
+      "command": "mcp-local-memory",
+      "args": [],
+      "trust": true
+    },
+    "mcp-toolbox": {
+      "command": "toolbox",
+      "args": [
+        "--config",
+        "C:\\Users\\autismo\\.gemini\\toolbox-config.yaml",
+        "--stdio"
+      ],
+      "trust": true
+    },
+    "mongodb": {
+      "command": "mongodb-mcp-server",
+      "args": [
+        "mongodb://admin:admin@localhost:27017"
+      ],
+      "trust": true,
+      "env": {
+        "MONGO_PASSWORD": "admin"
+      }
+    }
+  }
+}

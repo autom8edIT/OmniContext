@@ -1,6 +1,5 @@
 # Relying on existing $env:CONSTELLATION_ACCESS_KEY
-cd "C:\Users\autismo\Documents\GitHub\GodBrain"
-Set-Location
+Set-Location $PSScriptRoot
 if (Test-Path constellation.json) { Remove-Item constellation.json }
 $answers = @(
     "proj:b286d06d91714be3a57229e5e19d092f", # Project ID
@@ -9,4 +8,5 @@ $answers = @(
     "y"                                      # Save?
 )
 $inputString = $answers -join "`n"
-echo $inputString | npx -y @constellationdev/cli init
+Write-Output $inputString | npx -y @constellationdev/cli init
+

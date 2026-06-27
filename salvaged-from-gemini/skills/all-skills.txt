@@ -1,0 +1,66 @@
+===== FILE: C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\skills\remote-control-gateway-setup\SKILL.md =====
+---
+name: remote-control-gateway-setup
+description: Deploy and configure a secure FastAPI gateway for remote agent control via Tailscale and iOS Shortcuts. Use when setting up "God Mode" remote triggers for OCR, task queueing, or job execution from mobile devices.
+---
+
+# Remote Control Gateway Setup
+
+## Overview
+This skill enables secure, IP-agnostic remote control of a local agent using **FastAPI** as the gateway, **Tailscale** for the secure tunnel, and **iOS Shortcuts** for the user interface.
+
+## 1. Gateway Server (FastAPI)
+Create a `remote_gateway.py` on the host machine.
+
+```python
+import os
+from fastapi import FastAPI, Header, HTTPException, Depends
+from pydantic import BaseModel
+
+app = FastAPI(title="Agent Remote Control Gateway")
+API_KEY = os.environ.get("GATEWAY_API_KEY", "your-secure-key")
+
+async def verify_token(x_api_key: str = Header(...)):
+    if x_api_key != API_KEY:
+        raise HTTPException(status_code=403, detail="Unauthorized")
+
+class RemoteTask(BaseModel):
+    command: str
+    params: dict = {}
+
+@app.post("/trigger", dependencies=[Depends(verify_token)])
+async def trigger_task(task: RemoteTask):
+    # Route to internal logic (e.g. queueing, OCR, or shell)
+    return {"status": "Task Queued", "task": task.command}
+
+if __name__ == "__main__":
+    import uvicorn
+    # Listen on all interfaces so Tailscale can reach it
+    uvicorn.run(app, host="0.0.0.0", port=8001)
+```
+
+## 2. Secure Tunneling (Tailscale)
+Tailscale provides a stable IP that works across networks without port forwarding.
+1.  **Installation**: Install Tailscale on the Host (Windows/Mac/Linux).
+2.  **IP Discovery**: Run `tailscale ip -4` to get the stable IP (e.g., `100.120.96.99`).
+3.  **Firewall**: Ensure port `8001` (or your chosen port) is allowed for the Tailscale interface.
+
+## 3. iOS Shortcut Configuration
+Configure the iPhone to trigger the agent:
+1.  **New Shortcut**: Open the Shortcuts app -> Create New.
+2.  **Action**: Add "Get contents of URL".
+3.  **URL**: `http://<YOUR-TAILSCALE-IP>:8001/trigger`
+4.  **Method**: POST.
+5.  **Headers**:
+    - `X-API-Key`: `<YOUR-GATEWAY-API-KEY>`
+    - `Content-Type`: `application/json`
+6.  **Request Body**: JSON
+    - `command`: `Run OCR` (example)
+    - `params`: (as needed)
+
+## Pitfalls & Failure Shields
+- **IP Drift**: Never use the public IP; always use the Tailscale IP (`100.x.x.x`).
+- **Authentication**: Always use `X-API-Key` headers. Standard FastAPI `Depends` is the most reliable way to enforce this.
+- **Port Binding**: Ensure `uvicorn` is bound to `0.0.0.0`, not `127.0.0.1`, or it won't be reachable from other Tailscale nodes.
+- **Background Persistence**: On Windows, run the gateway using `nssm` or as a scheduled task to ensure it starts on boot.
+

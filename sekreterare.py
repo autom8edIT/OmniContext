@@ -7,7 +7,7 @@ import wave
 import threading
 import time
 from datetime import datetime
-from god_brain_core import GodBrainEngine, logger
+from memory_engine import GodBrainEngine, logger
 
 class AISecretary:
     """

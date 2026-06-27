@@ -1,0 +1,131 @@
+DISTRIBUTED VRAM LENDING SETUP FOR GODBRAIN (RPC over Tailscale)
+===============================================================
+
+Context: This session was on Mac, main GodBrain files are on the PC at C:\Users\autismo\Documents\GitHub\GodBrain
+All files below are generated here on Mac. Copy them to the PC (via Tailscale file share, OneDrive, USB, etc.).
+
+Key files to copy to PC (C:\Users\autismo\Documents\GitHub\GodBrain\ ):
+
+- launch_model.ps1 (the full updated one with native -RpcPeers support)
+- godbrain_mcp.py (or just the tool from godbrain_mcp_distributed_tool.py - merge the function)
+- Launch-DistributedLlama.ps1 (convenience wrapper)
+- Start-RpcPeer.ps1 (for peers to run)
+- distributed_vram_protocol_addition.py (merge into self_model/agent_instructions.py for the specialist to know the protocol)
+- launch_model_ps1_distributed_patch.txt (if you prefer manual patch instead of the full launch_model.ps1)
+
+Also copy to peers (brother, colleague PCs):
+- Start-RpcPeer.ps1
+
+Prerequisites on ALL machines (your 4080 PC and peers):
+- Tailscale installed and all in same tailnet (ACLs: allow tcp port 50052 between your PC and peers).
+- For the build: Rebuild your custom llama.cpp with RPC support:
+  In Build-LlamaCpp.ps1, ensure cmake has -DGGML_RPC=ON (in addition to your CUDA flags).
+  Then run the build script.
+- Peers need NVIDIA GPU + CUDA, and the rpc-server.exe from the build.
+
+On peers (brother/colleague):
+1. Copy Start-RpcPeer.ps1 to their llama.cpp build dir (or adjust path inside).
+2. Run it: pwsh -File .\Start-RpcPeer.ps1
+   (It starts the rpc-server on 50052, exposing their GPU.)
+3. Note their Tailscale IP (tailscale ip -4 or from tailscale status).
+4. Tell you the IP.
+
+On your PC (main 4080):
+Option A - Use native (recommended now):
+  pwsh -File .\launch_model.ps1 -Model specialist -RpcPeers "peer1-ts-ip","peer2-ts-ip" -RpcPort 50052
+
+Option B - Use the wrapper:
+  pwsh -File .\Launch-DistributedLlama.ps1 -Model specialist -RpcPeers "peer1-ts-ip","peer2-ts-ip"
+
+This will launch llama-server with --rpc peer1:50052,peer2:50052 ...
+The model layers will be distributed, using the peers' VRAM.
+
+MCP / Specialist side:
+- In godbrain_mcp.py, add the generate_distributed_vram_command tool (from the _tool.py file).
+- Call it to get the command string dynamically.
+- Merge the protocol from distributed_vram_protocol_addition.py into self_model/agent_instructions.py so the 26B specialist can "think" about using distributed peers (e.g. via get_cognitive_protocol("distributed_vram_lending")).
+- Then the specialist can decide to "lend" VRAM when needed for big models.
+
+Performance with your setup:
+- Your 1Gbit fiber + 2ms + peers 500Mbit should make the layer offloads fast.
+- Expect much more consistent speeds than the 1 tok/s GC mode.
+- Start with -ngl 99, monitor nvidia-smi on peers (you'll see VRAM usage for your model parts).
+- If too slow, fewer peers or test with smaller model first.
+- This is pipeline parallel (layers on different GPUs), works well for fitting large models.
+
+For Petals alternative:
+If you want a more dynamic swarm (not fixed --rpc list), look at Petals private swarm over Tailscale.
+We can add a similar generator tool later if wanted.
+
+Build reminder (on your PC):
+Update Build-LlamaCpp.ps1 cmake args to include -DGGML_RPC=ON if not already.
+Rebuild so the server supports the --rpc flag.
+
+=== CRITICAL: cmake + nvcc for your NVCleanInstall ultra-barebone FPS PC (no global PATH, no bloat) ===
+Update for your nvidia-smi (driver 581.94 reporting CUDA 13.0):
+Yes, use VS26 ("Visual Studio 18 2026") + the CUDA 13.3 Toolkit.
+Your driver 581.94 >=580 (the min for 13.x per 13.3 release notes), so 13.3 dev is supported via minor version compatibility even though nvidia-smi says 13.0.
+The DLL versions (13.3.29 runtime + 13.5.1 cuBLAS) are correct for 13.3.
+Use -Generator "Visual Studio 18 2026" -CudaToolkitRoot "...\v13.3" in Build-LlamaCpp.ps1. If you ever get a "driver version insufficient" at runtime for the built server, fall back to 13.0 Toolkit.
+From your exact feedback: "every project has their own cmake so the comment about making cmake a global path seems a bit hard to setup if you don't have some way of 'invoking' the correct cmake even when you're not even in VStudio?"
+
+AND: PC started life as pure max-FPS troll rig vs colleague AMD box => only specific Nvidia driver version + NVCleanInstall (Linux-style ultra minimal/barebone). You do NOT want the default gaming driver + telemetry + GFE bloat back just to get nvcc.
+
+Solution now codified in the updated Build-LlamaCpp.ps1 (copy it from Mac to PC):
+
+1. cmake invocation: ALWAYS full path. No global PATH edit.
+   - Script has -CMakePath param.
+   - Auto-detects the VS2022 one via vswhere or common locations:
+     C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe
+     (or Professional, BuildTools, etc.)
+   - You can run the build from any plain pwsh, any dir, no "Developer Command Prompt", no permanent env pollution for other projects.
+   - Example (explicit is safest first time):
+     pwsh -File .\Build-LlamaCpp.ps1 -CMakePath "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -CudaToolkitRoot "..."
+
+2. nvcc / CUDA Toolkit without touching your driver:
+   - Download CUDA Toolkit (not the driver) from https://developer.nvidia.com/cuda-downloads
+   - Run installer -> CUSTOM (ADVANCED)  <--- key
+   - UNCHECK the "NVIDIA Graphics Driver" / display driver component entirely.
+   - UNCHECK Nsight*, Visual Studio Integration, samples, docs, etc. for minimal.
+   - Only the core (nvcc, cudart, cublas_dev etc.) get installed.
+   - Your NVCleanInstall specific-version bare driver stays exactly as-is (the one that gave absolute highest FPS).
+   - Check first: nvidia-smi  => look at "CUDA Version: 12.x" reported by your driver. Pick a matching or compatible 12.x toolkit (minor version compatibility means a 12.6 toolkit often works fine on a driver that reports 12.4, as long as >= min required ~525).
+   - After install nvcc -V will show the toolkit version. The runtime for execution comes from your existing driver.
+
+3. Then build with explicit (or let it auto after first install):
+   pwsh -File .\Build-LlamaCpp.ps1 `
+        -CMakePath "C:\Program Files\Microsoft Visual Studio\2022\Community\...\cmake.exe" `
+        -CudaToolkitRoot "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4"
+
+   The script will:
+   - Copy godbrain_chat_extensions.cpp overlay (if llama-overrides/ present next to the .ps1)
+   - Pass -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=89 -DGGML_RPC=ON -DCUDAToolkit_ROOT=... -DCMAKE_CUDA_COMPILER=...
+   - Scope the CUDA env vars only for the duration of this pwsh tree (no global)
+   - Backup old llama-server, deploy fresh + dlls to your runtime dir
+   - Write LlamaBuildInfo.txt (full commit, exact cmake path used, cuda root, overlays, notes about your bare driver -- perfect for query_constellation later)
+
+4. VS prerequisite (one time):
+   In Visual Studio Installer: ensure "Desktop development with C++" workload + the "C++ CMake tools for Windows" component (this is what puts the cmake.exe in the CommonExtensions path above). No need for the full "CUDA" workload in VS.
+
+5. Lazy: just run pwsh -File .\Build-LlamaCpp.ps1 with zero args -> interactive menu with option "Print minimal CUDA Toolkit install steps for your NVCleanInstall PC".
+
+This directly addresses your experience. Every project keeps its own cmake (invoked by absolute path from the script), your FPS driver stays pristine and minimal, you still get nvcc for the specialist build that carries all the codified GodBrain / digital organism / boosting backend / distributed_vram / PC-sovereign-control-plane tokens.
+
+After this build you can immediately test:
+pwsh -File .\launch_model.ps1 -Model specialist
+# or with peers:
+pwsh -File .\launch_model.ps1 -Model specialist -RpcPeers "100.64.1.5","100.64.2.10"
+
+The 26B will then be able to call the MCP tool to generate the distributed command itself when it "feels" the GC thrashing coming.
+
+Copy this updated Build-LlamaCpp.ps1 (and the other generated files) from your Mac session dir to the real tree on PC.
+
+This is Technological Autarky in practice: you control the exact minimal toolchain the same way you control the God node.
+
+This keeps everything in the GodBrain "organism" style: decentralized compute cells (peers) coordinated by your sovereign PC God node, all over your controlled Tailscale network. No cloud, full control.
+
+Copy the files, apply the patch or use the provided launch_model.ps1, test with one peer first.
+
+If you need Mac-side scripts (e.g. a Python script you run from Mac to trigger launch on PC via SSH/Tailscale), let me know.
+
+Good luck - this should make the 26-27B fly!

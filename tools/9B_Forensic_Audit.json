@@ -1,0 +1,1184 @@
+{
+    "duplicates": {},
+    "secrets": [
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Password: \").strip()\n    totp_secret = input(\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "PASSWORD = \"m@nUTDCR#7\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "PASSWORD = \"m@nUTDCR#7\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Password: \").strip()\n    totp_secret = input(\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "PASSWORD = \"m@nUTDCR#7\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = '123'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password: 's00pers3cret'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password: 'rapunz3l'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = 'Password used to generate key'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password = '123'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password: 'yourpassword'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password: 'rapunz3l'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "password: 'rapunz3l'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Secret = \"gAAAAABoBzfbm8u9gXfyArXH05Wgx-xTZZZCGW8FWp3Lrj-j8_YSF_98jE-oSmcauejl-60nC2YA73GsHLEfalxBoH5HVxW6RALz5nE-H2wjeAQS_MjvrX0=\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Secret = \"JFKWQJBEORWA====\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "secret = 'abcdefg'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "secret = 'abcdefg'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "token: \"%T\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "token: \"%T\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token = \"{|\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token = \"|}\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token = \"#{\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token = \"}\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token = \"[|\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token = \"|]\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token = \"#[\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token = \"]\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token: \"^^\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token: \"@@\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token: \"#\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "token: \"%T\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "token: 'secret'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "token: 'secret'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "token: \" + (timestamp() - start));\n  start = timestamp();\n  const insideComment = isInComment(sourceFile, position, currentToken);\n  log(\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "token: \" + (timestamp() - start));\n  let node = currentToken;\n  let propertyAccessToConvert;\n  let isRightOfDot = false;\n  let isRightOfQuestionDot = false;\n  let isRightOfOpenTag = false;\n  let isStartingCloseTag = false;\n  let isJsxInitializer = false;\n  let isJsxIdentifierExpected = false;\n  let importStatementCompletion;\n  let location = getTouchingPropertyName(sourceFile, position);\n  let keywordFilters = 0 /* None */;\n  let isNewIdentifierLocation = false;\n  let flags = 0 /* None */;\n  let defaultCommitCharacters;\n  if (contextToken) {\n    const importStatementCompletionInfo = getImportStatementCompletionInfo(contextToken, sourceFile);\n    if (importStatementCompletionInfo.keywordCompletion) {\n      if (importStatementCompletionInfo.isKeywordOnlyCompletion) {\n        return {\n          kind: 4 /* Keywords */,\n          keywordCompletions: [keywordToCompletionEntry(importStatementCompletionInfo.keywordCompletion)],\n          isNewIdentifierLocation: importStatementCompletionInfo.isNewIdentifierLocation\n        };\n      }\n      keywordFilters = keywordFiltersFromSyntaxKind(importStatementCompletionInfo.keywordCompletion);\n    }\n    if (importStatementCompletionInfo.replacementSpan && preferences.includeCompletionsForImportStatements && preferences.includeCompletionsWithInsertText) {\n      flags |= 2 /* IsImportStatementCompletion */;\n      importStatementCompletion = importStatementCompletionInfo;\n      isNewIdentifierLocation = importStatementCompletionInfo.isNewIdentifierLocation;\n    }\n    if (!importStatementCompletionInfo.replacementSpan && isCompletionListBlocker(contextToken)) {\n      log(\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\autom8ed-tools\\autom8ed_vault_builder.py",
+            "match": "Password: \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Bin\\Autom8ed_TotalNuke.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Bin\\Autom8ed_TotalNuke_vFINAL.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Bin\\Restore-Autom8edEnv.ps1",
+            "match": "Secret = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\build\\build\\RITS\\EXE-00.toc",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\build\\build\\RITS_Login\\EXE-00.toc",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\build\\build\\RITS_Updater\\EXE-00.toc",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\build\\dist\\DellCommandUpdate.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\build\\dist\\DellTelemetryHost.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\build\\dist\\DellUpdateService.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\dist\\RITS_Updater.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Archive\\autom8ed_AutoLogin_FULLv1.py",
+            "match": "PASSWORD = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Archive\\autom8ed_autologin_v7.py",
+            "match": "PASSWORD = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\sys_ram_guardian (2).exe",
+            "match": "Secret = \"JFKWQJBEORWA====\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\csc_ui_siginfo.txt",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\Madmen_Login_Hack.py",
+            "match": "PASSWORD = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\build\\acwebhelper_watcher\\EXE-00.toc",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\build\\csc_ui\\EXE-00.toc",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\build\\Madmen_Login_Hack\\EXE-00.toc",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\Cisco\\acwebhelper.exe.txt",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\Cisco\\acwebhelpermemory.exe.txt",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\Cisco\\vpnagent.exe.txt",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\csc_ui.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\_internal\\python311.dll",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\_internal\\select.pyd",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\_internal\\unicodedata.pyd",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\_internal\\_bz2.pyd",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\_internal\\_decimal.pyd",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\_internal\\_hashlib.pyd",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\_internal\\_lzma.pyd",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\dist\\_internal\\_socket.pyd",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\XforWindows Setup 1.0.0.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\XforWindows.exe",
+            "match": "token: \"%T\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\XforWindows.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\resources\\app.asar",
+            "match": "token: \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\resources\\app.asar",
+            "match": "Token=\"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\generator\\lib\\generators\\types.js",
+            "match": "Token = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\generator\\lib\\generators\\types.js",
+            "match": "Token = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\generator\\lib\\generators\\types.js",
+            "match": "Token = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\generator\\lib\\generators\\types.js",
+            "match": "Token = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\generator\\lib\\generators\\types.js",
+            "match": "Token = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\generator\\lib\\generators\\types.js",
+            "match": "Token = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\generator\\lib\\generators\\types.js",
+            "match": "Token = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\generator\\lib\\generators\\types.js",
+            "match": "Token = \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\parser\\lib\\index.js",
+            "match": "Token: \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\parser\\lib\\index.js",
+            "match": "Token: \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@babel\\parser\\lib\\index.js",
+            "match": "Token: \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "secret = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@types\\node\\url.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\axios\\README.md",
+            "match": "password: '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\axios\\README.md",
+            "match": "password: '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\dist\\electron.exe",
+            "match": "token: \"%T\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\dist\\electron.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\node_modules\\@types\\node\\crypto.d.ts",
+            "match": "secret = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\electron\\node_modules\\@types\\node\\url.d.ts",
+            "match": "password = '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\got\\readme.md",
+            "match": "token: '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\got\\dist\\source\\core\\index.d.ts",
+            "match": "token: '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\typescript\\lib\\typescript.js",
+            "match": "token: \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\typescript\\lib\\typescript.js",
+            "match": "token: \"<REMOVED_BY_GHOSTGEMMA>\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\wait-on\\exampleConfig.js",
+            "match": "password: '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\wait-on\\README.md",
+            "match": "password: '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\wait-on\\README.md",
+            "match": "password: '<REMOVED_BY_GHOSTGEMMA>'",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed-tools\\nsis-3.11-setup.exe",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8edIT\\autom8ed-tools\\DLLs\\fde.dll",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8edIT\\autom8ed-tools\\DLLs\\gpedit.dll",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8edIT\\autom8ed-tools\\DLLs\\gptext.dll",
+            "match": "Token=\"6595b64144ccf1df\"",
+            "type": "Cleartext Credential"
+        }
+    ],
+    "vulnerabilities": [
+        {
+            "file": "C:\\Temp\\GitHub\\Cleartext_Harvest.txt",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Nuke_Log.txt",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Index for autom8ed.html",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Bin\\autom8ed_com_obliterator_v5.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Bin\\Autom8ed_TotalNuke.spec",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Bin\\Autom8ed_TotalNuke_v2.exe",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Bin\\Autom8ed_TotalNuke_vFINAL.spec",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Bin\\builder.py",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\build\\build\\RITS_Login\\RITS_Login.pkg",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\build\\dist\\DellCommandUpdate.exe",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\GUI\\autom8ed_gui.py",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Logs\\Autom8ed_TotalNuke.ps1.log",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Logs\\Autom8ed_TotalNuke_launcher.log",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Logs\\Move-Autom8ed.log",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\7ZipContextMenu.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\autom8ed_com_obliterator.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Autom8ed_TotalNuke.bak",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Autom8ed_TotalNuke.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Autom8ed_TotalNuke_RELOADED.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Autom8ed_TotalNuke_vX.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\BraveCleaner.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Final_LOL_launch_script.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Kill-Defender.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Kill-SPP.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\KillDefenderServices_FINALFORM.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\KillDefender_FINALFORM_BUNKERED.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Nuke-OneDrive.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\RemoveAllPython.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\RemoveClickToRun_FULLNUKE.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\RunAsSystem_RemoveClickToRun.cmd",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Scripts\\Uninstall-RITS.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\autom8ed_com_obliterator.ps1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\EXE.zip",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\IMG_0448.PNG",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\FakeCisco\\build\\Madmen_Login_Hack\\Madmen_Login_Hack.pkg",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\Pictures\\N3GUI.png",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\XforWindows Setup 1.0.0.exe",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\locales\\da.pak",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\locales\\et.pak",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\locales\\lt.pak",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\locales\\nb.pak",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\locales\\sk.pak",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\dist\\win-unpacked\\resources\\app.asar",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\@esbuild\\.win32-x64-paLHhqf1\\esbuild.exe",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\rollup\\dist\\bin\\rollup",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\node_modules\\yargs-parser\\build\\lib\\yargs-parser.js",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8ed\\Temp\\xforwindows\\src\\components\\MadmenXboxEradicator.jsx",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8edIT\\autom8ed-tools\\GIGA_MERGE_All_Bloat_Destroyed_FinalForm_UPLOAD.py",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\autom8edIT\\autom8ed-tools\\README.md",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\archive\\MachinePolicySpoofer_v0.001.psm1",
+            "issue": "Security Evasion Logic Detected",
+            "severity": "CRITICAL"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\archive\\MachinePolicySpoofer_v0.002.psm1",
+            "issue": "Security Evasion Logic Detected",
+            "severity": "CRITICAL"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\archive\\MachinePolicySpoofer_v0.003.psm1",
+            "issue": "Security Evasion Logic Detected",
+            "severity": "CRITICAL"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\archive\\MachinePolicySpoofer_v0.004.psm1",
+            "issue": "Security Evasion Logic Detected",
+            "severity": "CRITICAL"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\archive\\MachinePolicySpoofer_v0.005.psm1",
+            "issue": "Security Evasion Logic Detected",
+            "severity": "CRITICAL"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\archive\\MachineTotalNuke_v0.001.psm1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\archive\\MachineTotalNuke_v0.002.psm1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\Logs\\MachineLoader.log",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\StartupModules\\MachineCertShiv_v0.001.psm1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\StartupModules\\MachinePolicySpoofer_v0.006.psm1",
+            "issue": "Security Evasion Logic Detected",
+            "severity": "CRITICAL"
+        },
+        {
+            "file": "C:\\Temp\\GitHub\\Machine\\StartupModules\\MachineTotalNuke_v0.002_fixed.psm1",
+            "issue": "Destructive Logic / System Manipulation",
+            "severity": "HIGH"
+        }
+    ],
+    "file_counts": 13975,
+    "scan_time": 38.00251603126526
+}

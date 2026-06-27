@@ -1,0 +1,108 @@
+CUDA MINIMAL TOOLKIT INSTALL FOR NVCLEANINSTALL + SPECIFIC DRIVER FPS PC
+(For GodBrain llama.cpp builds with GGML_CUDA + GGML_RPC, no bloat, no telemetry, no driver reinstall)
+
+Your situation (verbatim):
+- PC was built purely for absolute highest FPS to troll colleague's prebuilt AMD rig.
+- Only a specific Nvidia driver version installed.
+- Used NVCleanInstall to achieve Linux-style "ultra minimal/barebone".
+- You don't want the default gaming driver + all its telemetry/services/GFE back just because you need nvcc for building the specialist.
+
+Latest: "Can I use VS26 and CUDA 13.3 from yesterdays release?" with the DLL details (CUDART 13.3.29, cuBLAS 13.5.1 + Light 13.5.1).
+
+**Yes.** CUDA 13.3 officially supports Visual Studio 2026 (MSVC 195x, generator "Visual Studio 18 2026" in CMake 4.2+). The versions you listed are *exactly* the component versions that ship together in the official CUDA 13.3 Toolkit (see release notes: cudart 13.3.29, cuBLAS 13.5.1.27). This is normal — math libs like cuBLAS advance their internal version number inside a major Toolkit release. Not a mismatch.
+
+Answer: Install the CUDA *Toolkit* separately via Custom, deliberately uncheck the driver component. Your stripped driver provides the runtime; the toolkit only gives you the compiler (nvcc) + dev libs/headers. Point Build-LlamaCpp.ps1 at v13.3 with -Generator "Visual Studio 18 2026".
+
+STEP-BY-STEP (do this on the PC)
+
+1. Check what your current bare driver supports
+   Open pwsh or cmd:
+   nvidia-smi
+   In your case (driver 581.94):
+     CUDA Version              : 13.0
+   This is what the driver reports. Per NVIDIA 13.3 release notes, CUDA 13.x requires driver >=580. Your 581.94 meets it, so the 13.3 Toolkit (the one giving you CUDART 13.3.29 + cuBLAS 13.5.1) is compatible for development/building via minor version compatibility. You keep your exact NVClean stripped driver.
+
+2. Download the Toolkit (not the Game Ready driver)
+   https://developer.nvidia.com/cuda-downloads
+   - Windows
+   - x86_64
+   - 13 (for "yesterday's release" and your CUDART 13.3.29 + cuBLAS 13.5.1; or 12.x if your nvidia-smi shows older)
+   - Installer Type: exe (local)  -- recommended, ~3-4GB
+
+3. Run the installer as Administrator (usual)
+   - First dialog: choose "Custom (Advanced)"   <--- DO NOT take Express
+   - In the component selection tree (left side usually):
+     * Find and UNCHECK the top-level or "NVIDIA Graphics Driver" / "Display Driver" entry. This is the one that would otherwise overwrite your NVCleanInstall masterpiece with the full bloat + telemetry version.
+     * UNCHECK anything you don't want for "ultra minimal":
+       - Nsight Systems
+       - Nsight Compute
+       - Nsight Visual Studio Edition
+       - CUDA Visual Studio Integration (optional; you can leave if you ever use VS CUDA projects, but for pure cmake + pwsh builds you don't need it)
+       - Demo Suite / Samples
+       - Documentation (you can read online)
+     * Keep checked (core):
+       - CUDA Toolkit (this pulls in nvcc, cudart, etc.)
+       - The individual libs you actually use (cublas, curand, etc. are usually wanted for GGML)
+   - Installation path: leave default
+     C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.4   (the vX.Y will match what you chose)
+   - Hit next / install. It should finish without touching your display driver.
+
+4. Verify (new terminal window)
+   nvcc -V
+   You should see the CUDA compiler version from the toolkit you just installed.
+   nvidia-smi will still show your old (minimal) driver version and its "CUDA Version".
+
+   They are intentionally allowed to be different numbers thanks to CUDA compatibility model.
+
+5. (Optional but recommended) Make a note for your build provenance
+   The Build-LlamaCpp.ps1 will record exactly which CudaToolkitRoot you used.
+
+6. Now build the GodBrain specialist / rpc-enabled server
+   From C:\Users\autismo\Documents\GitHub\GodBrain (or wherever you copied the updated Build-LlamaCpp.ps1):
+
+   # For your VS26 + CUDA 13.3
+   pwsh -File .\Build-LlamaCpp.ps1 `
+        -Generator "Visual Studio 18 2026" `
+        -CMakePath "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" `
+        -CudaToolkitRoot "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3"
+
+   - The script never adds anything to your permanent PATH.
+   - It only temporarily scopes CUDA_PATH / CUDAToolkit_ROOT for the child cmake/msbuild/nvcc processes.
+   - It will also copy the godbrain_chat_extensions.cpp overlay (if present in .\llama-overrides) so the resulting llama-server carries all the architect / organism / boosting-backend / PC-God-node tokens that make the 26B actually useful with MCP + constellation instead of chasing fluent $var filler.
+
+7. If you want even less in the future
+   You can have multiple CUDA versions side-by-side under the CUDA\ folder. Just pass a different -CudaToolkitRoot when you want an older/newer nvcc for a particular project. No conflict with your gaming-stripped driver.
+
+VS requirement (one-time)
+- Visual Studio 2022 **or** Visual Studio 2026 ("VS26").
+- Workload: "Desktop development with C++"
+- Component: "C++ CMake tools for Windows" (ships the cmake.exe; the script now supports both 2022 and 18 paths + -Generator "Visual Studio 18 2026").
+- For VS26 + CUDA 13.3 this is officially blessed by NVIDIA.
+- You do NOT need the "CUDA" workload inside VS for this workflow (we drive everything from cmake + pwsh).
+
+Why this matches your philosophy
+- Full control / autarky: you decide exactly what bits are on the machine.
+- PC as sovereignty fortress: even the build tools stay minimal and don't fight your FPS-optimized stripped driver.
+- "Ultra minimal/barebone" like Linux: only the nvcc you asked for, nothing else.
+- Per-project cmake: the Build script invokes the correct one by absolute path every time. No global state.
+
+After the build you get LlamaBuildInfo.txt in your runtime dir with the exact paths + commit + overlays used. Index that with constellation_index.ps1 and it becomes a first-class Hook / thought in the graph.
+
+Related files (copy from Mac session):
+- Build-LlamaCpp.ps1 (the one with the logic above)
+- launch_model.ps1 (now understands -RpcPeers natively)
+- Start-RpcPeer.ps1 (for brother/colleague to lend VRAM)
+- DISTRIBUTED_VRAM_SETUP_INSTRUCTIONS.txt (updated with this exact section)
+- godbrain_mcp_distributed_tool.py (merge the generate_distributed_vram_command tool)
+- distributed_vram_protocol_addition.py (merge into self_model/agent_instructions.py so the specialist knows "distributed_vram_lending" as a real CognitiveProtocol it can pull via get_cognitive_protocol)
+
+Then test the whole loop:
+- Peers run Start-RpcPeer.ps1 (they need their own llama.cpp built with -DGGML_RPC=ON too, using same technique if they also run minimal)
+- You: pwsh -File .\launch_model.ps1 -Model specialist -RpcPeers "their-ts-ip1","their-ts-ip2"
+- Or let the 26B itself decide and call the MCP tool.
+
+This is how the Digital Organism grows compute cells without ever compromising the control plane or the "barebone" nature of SteamusDominus.
+
+If the fiber (1Gbit/2ms you + 500Mbit peers) makes the sharded 26B feel like local after the Elon firings, you will have turned a "weak" 4080 into something that punches way above via organization/protocol.
+
+Good shit. Now go build it.

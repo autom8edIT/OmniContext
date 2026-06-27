@@ -1,0 +1,121 @@
+Administrator: Administrator: Windows PowerShell
+The Remote
+Control
+Infrastructure is
+now fully
+deployed
+and verified_
+SDeployed
+God
+Mode Features
+Remote OCR (POST /ingest/image) :
+You
+nol
+upload
+images
+from
+iPhone
+shortcut
+I've integrated
+this with
+the UniversalIngestionEngine,
+any
+text
+in your
+screenshots
+will
+automatically
+parsed
+and synced
+to your Neo4j
+Knowledge
+Graph.
+Remote Tasking
+(POST
+{tasks):
+You can
+send
+any
+engineering
+task (research,
+install
+build
+etc.
+directly to
+local
+queue
+(remote
+tasks.Json)
+Job
+Execution (POST /jobs/ {job_id}): I've
+pre-configured triggers
+for
+audit
+and
+sync-brain_
+Custom
+Authentication:
+The API is
+now locked
+down
+using
+your specific X-API-Key (xai-token-
+I've
+updated
+the
+code
+to prioritize this variable.
+iPhone Shortcut Configuration
+use
+the
+new features
+update
+shortcut with these settings
+Endpoint:
+http://100.120.96
+99:8001/tasks
+(for
+commands
+[ingestlimage (for screenshots).
+Header:
+API-Key=
+Bal
+token-the_real
+token
+Task
+Request Body (JSON)
+"task"
+"Research
+the
+latest NVIDIA
+driver bugs
+priority'
+Sync Status
+verified
+that
+tasks
+sent via
+the API are
+correctly stored
+locally
+and
+mirrored as "Memories" in
+your
+cloud graph
+This
+ensures
+can
+track your
+remote
+requests
+in real
+time
+or pick
+them up at
+the
+start
+Ou
+next
+session.
+your
+"high'

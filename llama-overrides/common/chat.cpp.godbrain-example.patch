@@ -1,0 +1,24 @@
+// GODBRAIN EXAMPLE OVERRIDE
+// 
+// Drop your actual modified chat.cpp here (or any of the files from the add_library list).
+// The Build-LlamaCpp.ps1 script will copy this tree over the upstream source before building.
+//
+// Example of the kind of GodBrain-specific tweak you might want for the 26B specialist:
+//
+// In common_chat_params_init_gemma4 or the parser builder, you could add special handling
+// so that when the specialist emits tool calls for save_godbrain_thought or query_constellation,
+// we automatically tag them or preserve extra context for the constellation graph.
+//
+// For now this file is just a marker. Replace its content with the real patched .cpp when ready,
+// or rename it to chat.cpp (without .godbrain-example.patch) and the copy logic will pick it up.
+//
+// Pro tip: keep the full file here so git tracks your deltas against upstream cleanly.
+// Better yet: use the separate godbrain_chat_extensions.cpp for additive GodBrain logic
+// so you don't have to maintain a full fork of chat.cpp.
+
+#include "chat.h"
+
+// See godbrain_chat_extensions.cpp in the same directory for the actual implementation
+// (preserved_tokens for your MCP tools, specialist detection, etc.).
+// Wire it by calling godbrain::apply_godbrain_chat_extensions(...) from the relevant
+// common_chat_params_init_* function after the build script overlays everything.

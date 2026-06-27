@@ -5,7 +5,7 @@ import asyncio
 import uvicorn
 from fastapi import FastAPI, Header, Depends, UploadFile, File, HTTPException
 from pydantic import BaseModel
-from god_brain_core import GodBrainEngine, logger
+from memory_engine import GodBrainEngine, logger
 from sekreterare import AISecretary
 from ingest_brain import UniversalIngestionEngine
 

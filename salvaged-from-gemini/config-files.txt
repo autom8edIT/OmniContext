@@ -1,0 +1,7 @@
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\config\plugins}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\config\projects}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\config\sidecars}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\config\.migrated}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\config\mcp_config.json}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\config\plugins\chrome-devtools-plugin}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\config\plugins\chrome-devtools-plugin\plugin.json}

@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-Build-LlamaCpp",
+      "appliesTo": "Build-LlamaCpp.ps1",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-godbrain_chat_extensions",
+      "appliesTo": "llama-overrides/common/godbrain_chat_extensions.cpp",
+      "type": "launch"
+    }
+  ]
+}

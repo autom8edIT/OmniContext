@@ -1,0 +1,43 @@
+# Patch / instructions for launch_model.ps1 on the PC (C:\Users\autismo\Documents\GitHub\GodBrain\launch_model.ps1)
+
+# 1. Add these parameters to the [CmdletBinding()] param( block at the top of the script.
+#    Look for the existing param( ... ) and add inside it:
+
+    [string[]]$RpcPeers = @(), # Tailscale IPs or hostnames of peers for distributed VRAM lending (e.g. brother/colleague). Use with -RpcPort
+    [int]$RpcPort = 50052, # Default port for the rpc-server on peers
+
+# 2. Early in the script, after param processing (e.g. after if ($PSBoundParameters.Count -eq 0) interactive menu or right after param), add this block:
+
+if ($RpcPeers.Count -gt 0) {
+    $peerList = $RpcPeers | ForEach-Object { "$_:$RpcPort" }
+    $rpcArg = "--rpc " + ($peerList -join ',')
+    Write-Host "Distributed VRAM mode: $rpcArg (pooling from peers over Tailscale for 26-27B models)" -ForegroundColor Green
+    Write-Host "With your 1Gbit/2ms + peers 500Mbit this should eliminate the 1 tok/s GC issues." -ForegroundColor Yellow
+}
+
+# 3. In the place where you build the command line args for launching llama-server.exe (look for lines like $args = @("-m", $modelPath, ...) or & $llamaServer ... or $launchArgs), add the rpcArg if present.
+
+# Example (adjust to match your existing code structure, e.g. inside the launch function or before the & call):
+
+if ($RpcPeers.Count -gt 0) {
+    if (-not (Get-Variable -Name rpcArg -ErrorAction SilentlyContinue)) {
+        $peerList = $RpcPeers | ForEach-Object { "$_:$RpcPort" }
+        $rpcArg = "--rpc " + ($peerList -join ',')
+    }
+    # If your args are in an array like $launchArgs += ...
+    $launchArgs += $rpcArg.Split(' ')
+    # Or if constructing a string command: $cmd += " $rpcArg"
+}
+
+# Then the launch will include it, e.g.:
+# & $llamaServer @launchArgs
+
+# 4. Update any help/comments at top to mention the new params.
+
+# After applying, you can call as:
+# pwsh -File .\launch_model.ps1 -Model specialist -RpcPeers "100.64.1.5","100.64.2.10"
+
+# This makes -RpcPeers native, as requested. The Launch-DistributedLlama.ps1 wrapper can stay for convenience or be deprecated in favor of this.
+
+# Also make sure your Build-LlamaCpp.ps1 includes -DGGML_RPC=ON in the cmake args so the server supports it.
+

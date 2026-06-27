@@ -1,0 +1,5 @@
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\skills\intel-bios-spi-verification\SKILL.md}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\skills\local-llm-fallback-reasoning\SKILL.md}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\skills\local-repo-security-remediation\SKILL.md}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\skills\remote-control-gateway-setup\SKILL.md}
+@{FullName=C:\Users\autismo\Documents\GitHub\GodBrain\salvaged-from-gemini\skills\SharedBrainTools\SKILL.md}

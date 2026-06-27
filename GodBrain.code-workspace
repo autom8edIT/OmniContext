@@ -1,0 +1,111 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+			"chat.tools.terminal.autoApprove": {
+				"/^python -c \"from dotenv import load_dotenv; import os; load_dotenv\\(\\); print\\(os\\.environ\\.get\\('MONGODB_URL'\\)\\)\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^python -c \"import os; from dotenv import load_dotenv; from motor\\.motor_asyncio import AsyncIOMotorClient; load_dotenv\\(\\); mongo_url = os\\.environ\\.get\\('MONGODB_URL'\\); print\\(f'URL: \\{mongo_url\\}'\\); client = AsyncIOMotorClient\\(mongo_url\\)\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"&": true,
+				"/^python -c \"import os, urllib\\.parse; from pymongo import MongoClient; passwd = os\\.environ\\.get\\('MONGODB_PASSWORD'\\); url = f'mongodb://admin:\\{passwd\\}@localhost:27017/'; print\\(url\\); client=MongoClient\\(url\\); print\\(client\\.admin\\.command\\('ping'\\)\\)\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"Set-Content": true,
+				"Get-CimInstance": true,
+				"Get-Process": true,
+				"Get-ItemProperty": true,
+				"/^python -c \"content = open\\('model_config\\.json', 'r'\\)\\.read\\(\\); print\\('local-models' in content\\)\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^cd C:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain ; python -c \"content = open\\('ingest_brain\\.py', 'r'\\)\\.read\\(\\); print\\('GraphDatabase' in content\\.split\\('from neo4j import GraphDatabase'\\)\\[1\\]\\)\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"dotnet build": true,
+				".\\GodBrainCli.exe": true,
+				"/^python -c \"from self_model\\.powershell import ModelDirectoryType\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^python -c \"import self_model\\.powershell\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^python -c \"import self_model\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^pwsh -noprofile -command \"& \\{ \\$err = \\$null; \\$script = Get-Content 'c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\Build-LlamaCpp\\.ps1' -Raw; \\[System\\.Management\\.Automation\\.Language\\.Parser\\]::ParseInput\\(\\$script, \\[ref\\]\\$err, \\[ref\\]\\$null\\); if \\(\\$err\\) \\{ \\$err \\| Select-Object -Property Message, Extent \\| Format-List \\} else \\{ 'NO ERRORS' \\} \\}\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"ForEach-Object": true,
+				"/^powershell -noprofile -c \"& \\{ \\$errs = \\$null; \\$ast = \\[System\\.Management\\.Automation\\.Language\\.Parser\\]::ParseFile\\('c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\Build-LlamaCpp\\.ps1', \\[ref\\]\\$null, \\[ref\\]\\$errs\\); if \\(\\$errs\\) \\{ \\$errs \\| ForEach-Object \\{ `\"\\$\\(\\$_\\.Extent\\.StartLineNumber\\): \\$\\(\\$_\\.Message\\)`\" \\} \\} else \\{ 'No errors!' \\} \\}\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^powershell -noprofile -c '& \\{ \\$errs = \\$null; \\$ast = \\[System\\.Management\\.Automation\\.Language\\.Parser\\]::ParseFile\\(''c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\Build-LlamaCpp\\.ps1'', \\[ref\\]\\$null, \\[ref\\]\\$errs\\); if \\(\\$errs\\) \\{ \\$errs \\| ForEach-Object \\{ \"\\$\\(\\$_\\.Extent\\.StartLineNumber\\): \\$\\(\\$_\\.Message\\)\" \\} \\} else \\{ \"No errors!\" \\} \\}'$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^powershell -noprofile -c \"Get-Content -LiteralPath 'c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\Build-LlamaCpp\\.ps1' \\| Select-Object -Index 240,241,296,297\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^powershell -noprofile -c \"Format-Hex -Path 'c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\Build-LlamaCpp\\.ps1' -Count 64 -Offset 9930\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^pwsh -noprofile -c \"\\(Get-Content 'c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\Build-LlamaCpp\\.ps1' -Raw\\)\\.Substring\\(9930, 60\\)\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^pwsh -noprofile -c \"\\$txt = Get-Content 'c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\Build-LlamaCpp\\.ps1' -Raw; \\$idx = \\$txt\\.IndexOf\\('function Write-BuildWarnings'\\); \\$txt\\.Substring\\(\\$idx, 60\\)\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^pwsh -noprofile -c \"& \\{ \\$lines = Get-Content 'Build-LlamaCpp\\.ps1'; for \\(\\$i=238; \\$i -le 242; \\$i\\+\\+\\) \\{ Write-Host `\"\\$i: >\\$\\(\\$lines\\[\\$i\\]\\)<`\" \\} \\}\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^pwsh -noprofile -c \"& \\{ \\$lines = Get-Content 'Build-LlamaCpp\\.ps1'; for \\(\\$i=238; \\$i -le 242; \\$i\\+\\+\\) \\{ Write-Host \"\"\\$i : \\*\\$\\(\\$lines\\[\\$i\\]\\)\\*\"\" \\} \\}\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^pwsh -noprofile -c \"\\(Get-Content 'c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\Build-LlamaCpp\\.ps1' -Raw\\) -match '@\\\\\"'\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"/^python -c \"import subprocess; subprocess\\.run\\(\\['pwsh', '-noprofile', '-c', '\\\\\\$errs = \\$null; \\$ast = \\[System\\.Management\\.Automation\\.Language\\.Parser\\]::ParseFile\\(\\\\'Build-LlamaCpp\\.ps1\\\\', \\[ref\\]\\$null, \\[ref\\]\\\\\\$errs\\); if \\(\\\\\\$errs\\) \\{ \\\\\\$errs\\.Message \\} else \\{ \\\\'No errors!\\\\' \\}'\\]\\)\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"cl.exe": true,
+				".\\Build-LlamaCpp.ps1": true,
+				"Clear-Content": true,
+				"git -C \"C:\\Users\\autismo\\Documents\\GitHub\\GodBrain\"": true,
+				"cp": true,
+				"Select": true,
+				"/^python -c \"\nwith open\\(r'c:\\\\Users\\\\autismo\\\\Documents\\\\GitHub\\\\GodBrain\\\\salvaged-from-gemini\\\\gemini-important-contents\\.txt', 'r', encoding='utf-8'\\) as f:\n    lines = f\\.readlines\\(\\)\n    start = max\\(0, 1309831 - 20\\)\n    end = min\\(len\\(lines\\), 1309831 \\+ 150\\)\n    print\\(''\\.join\\(lines\\[start:end\\]\\)\\)\n\"$/": {
+					"approve": true,
+					"matchCommandLine": true
+				},
+				"Test-Path": true,
+				"mv": true
+			},
+		"powershell.developer.setExecutionPolicy": true,
+		"chat.tools.terminal.terminalProfile.windows": {},
+		"inlineChat.defaultModel": "Gemini 3.1 Pro (Preview) (copilot)",
+		"workbench.settings.alwaysShowAdvancedSettings": true
+	}
+}
