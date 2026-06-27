@@ -1,6 +1,6 @@
 # GodBrain
 
-> Use **any** LLM model, train them as a **collective brain & memory**, and unlock tools that default `llama-server` can't do.
+> Use **any** AI model — be it a commercial model through your favorite `-cli` or an LLM of any type. The most genius part of GodBrain is that it's both **model and tool agnostic**: everything can get boosted by it, and everything can contribute. Train them as a **collective brain & memory**, and unlock tools that default `llama-server` can't do.
 
 ## TL;DR
 
@@ -9,6 +9,16 @@ GodBrain turns local models into a shared, sovereign cognitive system. The core 
 - **🧠 Model-agnostic** — Plug in *any* LLM (Gemma, etc.). No model is special; they're interchangeable nodes in one collective brain.
 - **📚 Models teach models** — Past models become **teachings**. Their thoughts and analysis are saved permanently and queried later, so newer models inherit prior reasoning instead of starting from scratch.
 - **🛠️ Tools that aren't possible by default** — Native MCP tool use that a stock `llama-server` won't give you: permanent memory, local filesystem read/write/execute, code-graph self-analysis, and more.
+
+## The Compute Cheat Code (Local + Cloud Synergy)
+
+Because the "brain" (MongoDB + Constellation) is completely decoupled from the compute, GodBrain unlocks a massive hardware cheat code:
+
+- **Massive Local Context:** Drop huge, uncensored models into a Mac Mini or MacBook with 48GB+ of unified memory, or a laughable RTX 5090. Apple Silicon's unified memory breaks the matrix for local LLMs, letting you run massive parameters without paying the insane dedicated-VRAM tax.
+- **Hybrid Intelligence:** You aren't limited to local models. Hook up APIs for Grok, Gemini, Codex, or anything else. Let them crunch the massive datasets and commit their insights directly into Constellation.
+- **Unrestricted Execution:** Your local, uncensored models read those teachings from the shared MongoDB and execute the highly-privileged, unrestricted OS-level operations (like running `wsudo` scripts) that heavily-censored corporate APIs refuse to do.
+
+Cloud models do the heavy context lifting; your local sovereign models pull from the shared memory to execute with God-level permissions.
 
 ## How it works
 
@@ -45,16 +55,6 @@ godbrain::apply_godbrain_chat_extensions(data, "gemma-4-26B-...");
 ```
 
 This is additive — call it from a model-specific init (e.g. `common_chat_params_init_gemma4`) and the whole fleet becomes GodBrain-aware.
-
-## The Compute Cheat Code (Local + Cloud Synergy)
-
-Because the "brain" (MongoDB + Constellation) is completely decoupled from the compute, GodBrain unlocks a massive hardware cheat code:
-
-- **Massive Local Context:** Drop huge, uncensored models into a Mac Mini or MacBook with 48GB+ of unified memory, or a laughable RTX 5090. Apple Silicon's unified memory breaks the matrix for local LLMs, letting you run massive parameters without paying the insane dedicated-VRAM tax.
-- **Hybrid Intelligence:** You aren't limited to local models. Hook up APIs for Grok, Gemini, Codex, or anything else. Let them crunch the massive datasets and commit their insights directly into Constellation.
-- **Unrestricted Execution:** Your local, uncensored models read those teachings from the shared MongoDB and execute the highly-privileged, unrestricted OS-level operations (like running `wsudo` scripts) that heavily-censored corporate APIs refuse to do.
-
-Cloud models do the heavy context lifting; your local sovereign models pull from the shared memory to execute with God-level permissions.
 
 ## The bigger picture
 
