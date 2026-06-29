@@ -1,10 +1,10 @@
-# GodBrain
+# Kollektivet / The collective
 
 > Use **any** AI model — be it a commercial model through your favorite `-cli` or an LLM of any type. The most genius part of GodBrain is that it's both **model and tool agnostic**: everything can get boosted by it, and everything can contribute. Train them as a **collective brain & memory**, and unlock tools that default `llama-server` can't do.
 
-## TL;DR
+## TLDR
 
-GodBrain turns local models into a shared, sovereign cognitive system. The core idea:
+The collective turns local models into a shared, sovereign cognitive system. The core idea:
 
 - **🧠 Model-agnostic** — Plug in *any* LLM (Gemma, etc.). No model is special; they're interchangeable nodes in one collective brain.
 - **📚 Models teach models** — Past models become **teachings**. Their thoughts and analysis are saved permanently and queried later, so newer models inherit prior reasoning instead of starting from scratch.
@@ -14,11 +14,14 @@ GodBrain turns local models into a shared, sovereign cognitive system. The core 
 
 Because the "brain" (MongoDB + Constellation) is completely decoupled from the compute, GodBrain unlocks a massive hardware cheat code:
 
-- **Massive Local Context — it scales infinitely with your hardware:** As if running *any* model wasn't enough, GodBrain just gets better the more you throw at it. On a PC with a 3090, 4090, or 5090? Great — bigger card, better local LLMs, more headroom. But here's where it gets silly: Apple Silicon's unified memory breaks the matrix. A Mac with 128GB+ UMA (think M5 Max and up) runs **100B+ parameter models locally** without paying the insane dedicated-VRAM tax. At that point you're not running a chatbot — you're basically a droid from Star Wars walking around with a sovereign brain in your bag.
+- **Massive Local Context — it scales infinitely with your hardware:** As if running *any* model wasn't enough, the shared mind just gets better the more you throw at it.
+
+- On a PC with a 3090, 4090, or 5090? Great — bigger card, better local LLMs, more headroom. But here's where it gets silly: Apple Silicon's unified memory breaks the matrix. A Mac with 128GB+ UMA (think M5 Max and up) runs **100B+ parameter models locally** without paying the insane dedicated-VRAM tax. At that point you're not running a chatbot — you're basically a droid from Star Wars walking around with a sovereign brain in your bag.
+
 - **Hybrid Intelligence:** You aren't limited to local models. Hook up APIs for Grok, Gemini, Codex, or anything else. Let them crunch the massive datasets and commit their insights directly into Constellation.
 - **Unrestricted Execution:** Your local, uncensored models read those teachings from the shared MongoDB and execute the highly-privileged, unrestricted OS-level operations (like running `wsudo` scripts) that heavily-censored corporate APIs refuse to do.
 
-Trying to match a 128GB Mac on a PC means stacking $10k+ of pro GPUs and a power bill that needs its own reactor. The Mac does it on a laptop, fanless-quiet, for a fraction of the watts — which is exactly the point: GodBrain scales infinitely with whatever you've got, so the only ceiling is your hardware budget, not the software.
+Trying to match a 128GB Mac on a PC means stacking $10k+ of pro GPUs and a power bill that needs its own reactor. The Mac does it on a laptop, fanless-quiet, for a fraction of the watts — which is exactly the point: It scales infinitely with whatever you've got, so the only ceiling is your hardware budget, not the software.
 
 Cloud models do the heavy context lifting; your local sovereign models pull from the shared memory to execute with God-level permissions.
 
@@ -30,7 +33,7 @@ Cloud models do the heavy context lifting; your local sovereign models pull from
 
 It teaches the chat layer to treat GodBrain's MCP tools as **first-class tokens** — preserving them so the model can reliably emit and act on them *without fighting the chat template* (instead of having them mangled or stripped).
 
-### GodBrain-native MCP tools
+### Collective-native MCP tools
 
 These are injected as preserved tokens so any model can use them:
 
@@ -60,7 +63,7 @@ This is additive — call it from a model-specific init (e.g. `common_chat_param
 
 ## The bigger picture
 
-GodBrain is a **Distributed Cognitive OS**: intelligence is decoupled from hardware. The "mind" lives in shared brain-wires; models contribute sensing, compute, and local agency, and high-leverage teachings persist for every model that follows.
+The collective is a **Distributed Cognitive OS**: intelligence is decoupled from hardware. The "mind" lives in shared brain-wires; models contribute sensing, compute, and local agency, and high-leverage teachings persist for every model that follows.
 
 ## The End Goal: A Sovereign Autonomous Operator
 
