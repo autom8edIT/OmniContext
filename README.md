@@ -1,3 +1,5 @@
+
+
 # Kollektivet / The collective
 
 > Use **any** AI model — be it a commercial model through your favorite `-cli` or an LLM of any type. The most genius part of GodBrain is that it's both **model and tool agnostic**: everything can get boosted by it, and everything can contribute. Train them as a **collective brain & memory**, and unlock tools that default `llama-server` can't do.
@@ -27,7 +29,7 @@ Cloud models do the heavy context lifting; your local sovereign models pull from
 
 ## How it works
 
-`Build-LlamaCpp.ps1` overlays files from `llama-overrides/` onto the llama.cpp source at build time. The key piece is:
+`Build-LlamaCpp.ps1` overlays files from `llama-overrides/` onto the llama.cpp source at build time. *(Note: The `GodBrainCli` and `GodBrainCore` modules target `.NET 10.0` as indicated by the build configurations.)* The key piece is:
 
 **[`llama-overrides/common/godbrain_chat_extensions.cpp`](llama-overrides/common/godbrain_chat_extensions.cpp)**
 
