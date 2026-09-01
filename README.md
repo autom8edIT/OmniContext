@@ -1,99 +1,149 @@
-# Kollektivet / The collective
+# OmniContext
 
-> Use **any** AI model — be it a commercial model through your favorite `-cli` or an LLM of any type. The most genius part of GodBrain is that it's both **model and tool agnostic**: everything can get boosted by it, and everything can contribute. Train them as a **collective brain & memory**, and unlock tools that default `llama-server` can't do.
+## SRE automation architecture case study
 
-## TLDR
+OmniContext documents the early prototype and the engineering decisions behind a
+Windows-first, closed-loop SRE agent:
 
-The collective turns local models into a shared, sovereign cognitive system. The core idea:
-
-- **🧠 Model-agnostic** — Plug in *any* LLM (Gemma, etc.). No model is special; they're interchangeable nodes in one collective brain.
-- **📚 Models teach models** — Past models become **teachings**. Their thoughts and analysis are saved permanently and queried later, so newer models inherit prior reasoning instead of starting from scratch.
-- **🛠️ Tools that aren't possible by default** — Native MCP tool use that a stock `llama-server` won't give you: permanent memory, local filesystem read/write/execute, code-graph self-analysis, and more.
-
-## The Compute Cheat Code (Local + Cloud Synergy)
-
-Because the "brain" (MongoDB + Constellation) is completely decoupled from the compute, GodBrain unlocks a massive hardware cheat code:
-
-- **Massive Local Context — it scales infinitely with your hardware:** As if running *any* model wasn't enough, the shared mind just gets better the more you throw at it.
-
-- On a PC with a 3090, 4090, or 5090? Great — bigger card, better local LLMs, more headroom. But here's where it gets silly: Apple Silicon's unified memory breaks the matrix. A Mac with 128GB+ UMA (think M5 Max and up) runs **100B+ parameter models locally** without paying the insane dedicated-VRAM tax. At that point you're not running a chatbot — you're basically a droid from Star Wars walking around with a sovereign brain in your bag.
-
-- **Hybrid Intelligence:** You aren't limited to local models. Hook up APIs for Grok, Gemini, Codex, or anything else. Let them crunch the massive datasets and commit their insights directly into Constellation.
-- **Unrestricted Execution:** Your local, uncensored models read those teachings from the shared MongoDB and execute the highly-privileged, unrestricted OS-level operations (like running `wsudo` scripts) that heavily-censored corporate APIs refuse to do.
-
-Trying to match a 128GB Mac on a PC means stacking $10k+ of pro GPUs and a power bill that needs its own reactor. The Mac does it on a laptop, fanless-quiet, for a fraction of the watts — which is exactly the point: It scales infinitely with whatever you've got, so the only ceiling is your hardware budget, not the software.
-
-Cloud models do the heavy context lifting; your local sovereign models pull from the shared memory to execute with God-level permissions.
-
-## How it works
-
-`Build-LlamaCpp.ps1` overlays files from `llama-overrides/` onto the llama.cpp source at build time. The key piece is:
-
-**[`llama-overrides/common/godbrain_chat_extensions.cpp`](llama-overrides/common/godbrain_chat_extensions.cpp)**
-
-It teaches the chat layer to treat GodBrain's MCP tools as **first-class tokens** — preserving them so the model can reliably emit and act on them *without fighting the chat template* (instead of having them mangled or stripped).
-
-### Collective-native MCP tools
-
-These are injected as preserved tokens so any model can use them:
-
-| Tool | Purpose |
-|------|---------|
-| `save_godbrain_thought` | Permanent memory — write reasoning the next model can learn from |
-| `query_constellation` | Code-graph self-analysis |
-| `query_recent_thoughts` | Recall prior models' thinking |
-| `read_local_file` / `write_local_file` | Native, privileged local filesystem access (no browser sandbox theater) |
-| `list_local_dir` / `ensure_local_dir` | Local directory ops |
-| `execute_godbrain_script` | Direct script execution / control |
-| `get_system_telemetry` | Hardware/system awareness |
-| `ocr_image` | Image → text |
-| `ask_local_llm` | Route a step to another local model |
-| `get_cognitive_protocol` | Fetch a reusable "recipe" / workflow |
-| `propose_sovereign_architect_change` | Evolve the system's own rules |
-
-### Why preserved tokens matter
-
-Default `llama-server` will happily break tool calls because the chat template doesn't know about them. By registering these tools (and architect-mode tokens) into `data.preserved_tokens`, GodBrain makes them durable and reliable across the fleet.
-
-```cpp
-godbrain::apply_godbrain_chat_extensions(data, "gemma-4-26B-...");
+```text
+detect -> diagnose -> propose -> authorize -> remediate -> verify
 ```
 
-This is additive — call it from a model-specific init (e.g. `common_chat_params_init_gemma4`) and the whole fleet becomes GodBrain-aware.
+The prototype explored shared operational memory, multimodal ingestion, local
+models, and host tooling. Its most important result was not a larger agent graph.
+It was identifying which responsibilities must remain outside the language model:
+authentication, policy, process control, provenance, rollback, and verification.
 
-## The bigger picture
+The active implementation of those lessons is
+[GodBrain](https://github.com/usrname1git/GodBrain).
 
-The collective is a **Distributed Cognitive OS**: intelligence is decoupled from hardware. The "mind" lives in shared brain-wires; models contribute sensing, compute, and local agency, and high-leverage teachings persist for every model that follows.
+## Why this problem matters
 
-## The End Goal: A Sovereign Autonomous Operator
+Infrastructure incidents rarely fit inside one tool:
 
-The destination is an AI that owns the full loop — brainstorm a problem, understand it, and *fix it* across every machine you run, with no hand-holding.
+- a client failure may originate in DNS, routing, identity, policy, a service, or
+  the operating system;
+- raw logs and configuration dumps are too large and noisy to place directly in a
+  model prompt;
+- a plausible repair is not useful unless the system can prove that it fixed the
+  original symptom;
+- a model with direct database or shell access turns untrusted output into an
+  operational security boundary.
 
-**Working today** — these are shipped and live in the build, not slideware:
+OmniContext began as an attempt to give multiple tools a shared memory. The
+project evolved toward a stricter objective: give one bounded SRE loop the minimum
+evidence required to distinguish the failed layer, apply an allowlisted action,
+and verify the outcome.
 
-- **Self-command** — the agent issues and chains its own commands.
-- **Sequential thinking** — multi-step reasoning instead of one-shot guesses.
-- **Constellation** — code-graph self-analysis of its own system.
-- **MongoDB query / index / update** — full read-write access to the shared brain.
-- **Full local filesystem read/write** — real files, real changes, no sandbox theater.
-- **Privileged execution** — `wsudo` scripts and Visual Studio access to actually build and repair.
+## Architecture evolution
 
-Put together, that already means GodBrain can reason about a problem, dig through its own memory and code graph, and execute privileged fixes on the local machine — the hard part is done.
+| Prototype assumption | Finding | Current design |
+|---|---|---|
+| More model nodes improve reliability | Coordination adds latency and does not create evidence | One loop by default; add a node only for a distinct signal |
+| A shared database can be model memory | Raw and reviewed claims have different trust levels | Immutable sources, candidate claims, explicit verification |
+| The model can call infrastructure directly | Prompt content and model output are untrusted | Native kernel owns authorization and execution |
+| A successful command means a successful repair | Commands can succeed while the incident remains | Verify the original symptom after every change |
+| Model-specific tool patches are acceptable | They are brittle and couple policy to the inference engine | OpenAI-compatible model endpoint behind a stable kernel protocol |
+| More context is always better | Unfiltered context hides the relevant signal | Bounded retrieval with provenance and failure-closed behavior |
 
-**The end goal** — the trajectory these capabilities are converging on:
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the detailed engineering decisions.
 
-> A fully autonomous operator that scans the internet for the latest CVEs, *understands* the threat, and auto-patches it across **any** of your machines — Devuan, macOS, or Windows alike. It picks up where tools like DISM fall short, repairs what they should have fixed (registry included), and closes the loop end-to-end because it has both the reasoning and the privileged tooling (`wsudo`, Visual Studio, local execution) to do it.
+## What the repository contains
 
-Cloud models can do the heavy context lifting; your local sovereign models pull from the shared memory and pull the trigger. That's the whole point: **one collective brain, infinite hardware, zero permission-begging.**
+This repository preserves the prototype artifacts for engineering review:
 
-### Roadmap
+- `memory_engine.py` - experimental MongoDB/Neo4j shared-memory layer;
+- `Build-LlamaCpp.ps1` and `llama-overrides/` - model-specific tool experiments;
+- `tools/` - early analysis and retrieval utilities;
+- early API, ingestion, distributed inference, and presentation experiments.
 
-- [x] Self-command + sequential thinking
-- [x] Constellation code-graph self-analysis
-- [x] MongoDB query / index / update
-- [x] Full local filesystem read/write
-- [x] Privileged execution (`wsudo`, Visual Studio)
-- [ ] Autonomous CVE ingestion (scan + understand latest threats)
-- [ ] Cross-fleet patch orchestration (Devuan / macOS / Windows)
-- [ ] Self-directed DISM/registry repair beyond stock tooling
-- [ ] Closed-loop: detect → reason → patch → verify, zero hand-holding
+These files are historical design evidence, not a supported production
+deployment. Several contain machine-specific assumptions and predate the current
+security model. They must not be used with real credentials or production data.
+
+## Active implementation
+
+GodBrain replaces the prototype's direct model-to-infrastructure relationships
+with explicit boundaries:
+
+```text
+operator
+   |
+   v
+C++ loopback kernel
+   |-- authentication and policy
+   |-- bounded tools and exact-child process control
+   |-- audit, receipts, rollback and verification
+   |
+   +--> replaceable OpenAI-compatible local model
+   |
+   +--> Go memory-store and retrieval service
+           |-- immutable raw sources
+           |-- candidate knowledge
+           |-- reviewed Golden Records
+           +-- provenance and generation-addressed retrieval
+```
+
+Current engineering evidence is available in:
+
+- [GodBrain README](https://github.com/usrname1git/GodBrain)
+- [C++ kernel](https://github.com/usrname1git/GodBrain/tree/main/godbrain_core/cpp_kernel)
+- [Memory Store](https://github.com/usrname1git/GodBrain/tree/main/godbrain_core/memory_store)
+- [Windows SRE Surgeon](https://github.com/usrname1git/GodBrain/tree/main/godbrain_core/sre_agent)
+
+## Reliability and security principles
+
+1. **Diagnose before repair.** Start with read-only probes that distinguish the
+   failed layer.
+2. **Fail closed.** Missing authorization, retrieval, validation, or verification
+   must not become a success-shaped fallback.
+3. **Treat content as data.** Logs, web text, database records, and model output do
+   not grant execution authority.
+4. **Control the exact process created.** Timeouts and termination target the
+   child or Job Object, never every process with a matching image name.
+5. **Separate candidates from reviewed knowledge.** Repetition does not turn an
+   unverified claim into truth.
+6. **Verify the user-visible outcome.** A command exit code is only one piece of
+   evidence.
+7. **Keep remediation reversible.** High-impact changes require an explicit gate,
+   a bounded action, and rollback where possible.
+
+## Example SRE decision path
+
+For a client reporting that an internal service cannot be reached:
+
+```text
+1. Reproduce the failure and capture the exact endpoint.
+2. Test loopback and local TCP/IP health.
+3. Resolve the hostname and compare expected records.
+4. Test the route and destination port.
+5. Identify the owning process or missing listener.
+6. Select the smallest allowlisted correction supported by the evidence.
+7. Repeat the original request and dependent health checks.
+8. Record the observation, action, and verification result.
+```
+
+This avoids the traditional "repair cocktail" where DNS, Winsock, adapters,
+services, and the operating system are reset without first proving which layer
+failed.
+
+## What this case study demonstrates
+
+- Cross-layer Windows, Linux, networking, identity, and infrastructure reasoning.
+- The ability to evolve a prototype after identifying unsafe assumptions.
+- Security-conscious process execution and authorization design.
+- Operational knowledge ingestion with provenance and explicit review.
+- A verifier-first approach to agentic automation.
+- Practical integration across C++, Go, PowerShell, Python, MongoDB, and local
+  inference engines.
+
+## Status
+
+OmniContext is maintained as an architecture case study. New runtime development
+continues in GodBrain. Keeping the prototype public makes the design evolution
+inspectable instead of rewriting history around the final architecture.
+
+## Author
+
+[Joel Larsson](https://autom8ed.it) - Senior SRE and Infrastructure Automation
+Engineer based in Sweden.

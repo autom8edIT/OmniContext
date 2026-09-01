@@ -2,7 +2,9 @@ import os
 import json
 import shutil
 import asyncio
+import sys
 import uvicorn
+from pathlib import Path
 from fastapi import FastAPI, Header, Depends, UploadFile, File, HTTPException
 from pydantic import BaseModel
 from memory_engine import GodBrainEngine, logger
@@ -15,8 +17,12 @@ secretary = AISecretary()
 ingestor = UniversalIngestionEngine()
 
 # Paths
-REMOTE_TASKS_FILE = r"C:\Users\autismo\Documents\GitHub\godbrain\remote_tasks.json"
-UPLOADS_DIR = r"C:\Users\autismo\Documents\GitHub\godbrain\uploads"
+PROJECT_DIR = Path(__file__).resolve().parent
+REMOTE_TASKS_FILE = Path(
+    os.environ.get("GODBRAIN_REMOTE_TASKS_FILE", PROJECT_DIR / "remote_tasks.json")
+)
+UPLOADS_DIR = Path(os.environ.get("GODBRAIN_UPLOADS_DIR", PROJECT_DIR / "uploads"))
+UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
 # Security
 API_KEY = os.environ.get("X-API-Key", os.environ.get("GODBRAIN_API_KEY"))
@@ -63,7 +69,8 @@ async def ingest_thought(thought: Thought):
 async def ingest_image(file: UploadFile = File(...), source: str = "iPhone_OCR"):
     """Endpoint for iPhone to upload images for OCR and Knowledge Injection."""
     try:
-        temp_file = os.path.join(UPLOADS_DIR, f"remote_{file.filename}")
+        filename = Path(file.filename or "upload.bin").name
+        temp_file = UPLOADS_DIR / f"remote_{filename}"
         with open(temp_file, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
         
@@ -71,7 +78,7 @@ async def ingest_image(file: UploadFile = File(...), source: str = "iPhone_OCR")
         thought_id = await ingestor.ingest_image(temp_file, source=source)
         
         if thought_id:
-            return {"status": "OCR Success", "id": thought_id, "file": file.filename}
+            return {"status": "OCR Success", "id": thought_id, "file": filename}
         return {"status": "Error", "detail": "OCR extraction failed"}
     except Exception as e:
         logger.error(f"[-] Image ingestion failed: {e}")
@@ -81,7 +88,8 @@ async def ingest_image(file: UploadFile = File(...), source: str = "iPhone_OCR")
 async def ingest_audio(file: UploadFile = File(...), device: str = "Remote_Mic"):
     """Endpoint for iPhone/Mac to upload audio recordings for transcription."""
     try:
-        temp_file = os.path.join(UPLOADS_DIR, f"temp_{device}_{file.filename}")
+        filename = Path(file.filename or "audio.bin").name
+        temp_file = UPLOADS_DIR / f"temp_{device}_{filename}"
         with open(temp_file, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
         
@@ -135,17 +143,26 @@ async def queue_task(task_data: RemoteTask):
 @app.post("/jobs/{job_id}", dependencies=[Depends(verify_token)])
 async def run_job(job_id: str):
     """Executes a pre-defined 'God Mode' system script."""
+    audit_script = os.environ.get("GODBRAIN_AUDIT_SCRIPT")
+    sync_script = os.environ.get("GODBRAIN_SYNC_SCRIPT")
     job_map = {
-        "run-audit": r"powershell.exe -File C:\Users\autismo\Documents\GitHub\godbrain\audit.ps1",
-        "sync-brain": r"python C:\Users\autismo\Documents\GitHub\godbrain\check_sync.py",
+        "run-audit": [
+            "powershell.exe",
+            "-NoProfile",
+            "-File",
+            audit_script,
+        ] if audit_script else None,
+        "sync-brain": [sys.executable, sync_script] if sync_script else None,
     }
     
     if job_id not in job_map:
         return {"status": "Error", "detail": f"Job '{job_id}' not found"}
+    if job_map[job_id] is None:
+        return {"status": "Error", "detail": f"Job '{job_id}' is not configured"}
     
     try:
         # Run in background to not block API
-        asyncio.create_subprocess_shell(job_map[job_id])
+        await asyncio.create_subprocess_exec(*job_map[job_id])
         return {"status": "Job Started", "job": job_id}
     except Exception as e:
         return {"status": "Error", "detail": str(e)}

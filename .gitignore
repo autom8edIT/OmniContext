@@ -16,8 +16,14 @@ venv.bak/
 # IDEs
 .vscode/
 .idea/
+.vs/
 *.swp
 *.swo
+
+# Build outputs
+**/bin/
+**/obj/
+outputs/
 
 # Project specific
 uploads/
